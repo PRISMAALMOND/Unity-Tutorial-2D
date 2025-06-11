@@ -3,7 +3,7 @@ using UnityEngine;
 public class StudyGameObject : MonoBehaviour
 {
     public GameObject prefab;
-
+    
     void Awake()
     {
         CreateAmongus();
@@ -14,5 +14,5 @@ public class StudyGameObject : MonoBehaviour
         GameObject obj = Instantiate(prefab);
         obj.name = "어몽어스 캐릭터";
     }
-
+    
 }

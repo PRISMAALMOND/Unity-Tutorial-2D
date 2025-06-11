@@ -1,35 +1,24 @@
 using UnityEngine;
 
 public class PlanetRotation : MonoBehaviour
-
-   
 {
-    public Transform targetPlanet; 
+    public Transform targetPlanet;
+    
+    public float rotSpeed = 30f; // ìì „ ì†ë„
 
-    public float rotSpeed = 30f; // ÀÚÀü¼Óµµ
+    public float revolutionSpeed = 100f; // ê³µì „ ì†ë„
 
-    public float revolutionSpeed = 100f; // °øÀü ¼Óµµ
+    public bool isRevolution = false; // ë…¼ë¦¬ íƒ€ì… -> true / false
 
-    public  bool isRevolution = false;
-
-
-
-    // Update is called once per frame
     void Update()
     {
-        // ÀÚ±â ÀÚ½ÅÀÌ È¸ÀüÇÏ´Â ±â´É
-        transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime);
+        //  ìì „í•˜ëŠ” íšŒì „í•˜ëŠ” ê¸°ëŠ¥
+        transform.Rotate(Vector3.up * rotSpeed * Time.deltaTime, Space.Self);
 
-        if (isRevolution == true) //  Á¶°Ç¹® > ¸¸¾à °øÀüÀ» ÇÑ´Ù¸é,
+        if (isRevolution == true) // ì¡°ê±´ë¬¸ -> ë§Œì•½ ê³µì „ì„ í•œë‹¤ë©´,
         {
-            // °øÀü ÇÏ´Â ±â´É
+            // ê³µì „í•˜ëŠ” ê¸°ëŠ¥
             transform.RotateAround(targetPlanet.position, Vector3.up, revolutionSpeed * Time.deltaTime);
-
         }
-
     }
-
-
-
-
 }
